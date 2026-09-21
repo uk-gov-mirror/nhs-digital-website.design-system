@@ -67,10 +67,10 @@
     "gulp-sass": "^6.0.1",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify-es": "^2.0.0",
-    "nunjucks": "^3.2.2",
+    "nunjucks": "^3.2.4",
     "nunjucks-loader": "^3.0.0",
     "pretty": "^2.0.0",
-    "prismjs": "^1.23.0",
+    "prismjs": "^1.30.0",
     "react-is": "^16.8.0",
     "rework": "^1.0.1",
     "rework-plugin-function": "^1.0.2",
@@ -98,6 +98,6 @@
     "last 2 iOS major versions"
   ],
   "dependencies": {
-    "core-js": "^3.17.2"
+    "core-js": "^3.50.0"
   }
 }
