@@ -28,6 +28,18 @@ export default function nunjucksTemplates({ root }) {
 
     transform(source, id) {
       const file = id.split('?')[0];
+      const normalizedFile = file.replaceAll('\\', '/');
+
+      if (normalizedFile.endsWith('/helpers/icons/inline-icon.js')) {
+        return source
+          .replace("const hexIcon = require('./hexagonal-icon');", "import hexIcon from './hexagonal-icon.js';")
+          .replace('module.exports = inlineIcon;', 'export default inlineIcon; export { icons };');
+      }
+
+      if (normalizedFile.endsWith('/helpers/icons/hexagonal-icon.js')) {
+        return source.replace('module.exports = function nestSVG', 'export default function nestSVG');
+      }
+
       if (!file.endsWith('.njk')) return null;
 
       const compiled = nunjucksLoader.call({
