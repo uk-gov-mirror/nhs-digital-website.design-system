@@ -91,5 +91,12 @@
   ],
   "dependencies": {
     "core-js": "^3.50.0"
+  },
+  "overrides": {
+    "atob": "^2.1.2",
+    "decode-uri-component": "^0.5.0",
+    "json5": "^2.2.3",
+    "loader-utils": "^1.4.2",
+    "postcss": "^8.5.28"
   }
 }
