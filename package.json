@@ -72,7 +72,7 @@
     "rework-plugin-function": "^1.0.2",
     "sass": "^1.104.1",
     "sass-loader": "^17.0.1",
-    "sass-mq": "^5.0.1",
+    "sass-mq": "^7.0.1",
     "storybook": "^10.6.0",
     "style-loader": "^4.0.0",
     "stylelint": "^17.15.0",

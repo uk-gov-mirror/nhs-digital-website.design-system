@@ -8,17 +8,15 @@ $-bp-xl: 1580px;
 
 // Initialise the grid system with the custom settings
 @use "mq" as * with (
-  $mq-responsive: true,
-  $mq-breakpoints: (
+  $breakpoints: (
     xs: $-bp-xs,
     t:  $-bp-t,
     s:  $-bp-s,
     m:  $-bp-m,
     l:  $-bp-l,
     xl: $-bp-xl,
-  ),
-  $mq-static-breakpoint: m
-  // $mq-show-breakpoints: (xs, s, m, l, xl)
+  )
+  // $show-breakpoints: (xs, s, m, l, xl)
   // Uncomment the above line if want to see debug information
 );
 
