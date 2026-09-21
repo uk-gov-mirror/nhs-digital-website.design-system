@@ -2,6 +2,8 @@ import "../src/nhsd/nhsd-frontend.scss";
 import init from "../src/nhsd/script-core/init";
 import "../src/nhsd/nhsd-frontend";
 
+export const tags = ['autodocs'];
+
 const rootNode = document.getElementById('storybook-root');
 const docsRootNode = document.getElementById('storybook-docs');
 

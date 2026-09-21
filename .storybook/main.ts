@@ -14,7 +14,7 @@ export default {
     options: {},
   },
   stories: ['../src/nhsd/**/*.stories.js'],
-  addons: ['@storybook/addon-a11y'],
+  addons: ['@storybook/addon-a11y', '@storybook/addon-docs'],
   staticDirs: [
     path.resolve(projectDirectory, 'dist'),
     { from: path.resolve(projectDirectory, 'dist/fonts'), to: '/assets/fonts' },

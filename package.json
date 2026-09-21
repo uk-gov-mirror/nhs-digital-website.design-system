@@ -43,6 +43,7 @@
     "@babel/preset-env": "^8.0.6",
     "@eslint/js": "^10.0.1",
     "@storybook/addon-a11y": "^10.6.0",
+    "@storybook/addon-docs": "^10.6.0",
     "@storybook/html-vite": "^10.6.0",
     "babel-loader": "^10.1.1",
     "chalklet": "^1.0.0",
