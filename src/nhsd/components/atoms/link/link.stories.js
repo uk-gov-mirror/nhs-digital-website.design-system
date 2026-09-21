@@ -12,7 +12,7 @@ const sourceCode = '// Sass import \n@use "nhsd/components/atoms/link";\n\n// HT
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.atoms} / ${componentName}`,
+  title: "Design System / Components / Atoms / Link",
   parameters: {
     docs: {
       description: {

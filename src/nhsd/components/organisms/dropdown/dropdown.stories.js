@@ -77,7 +77,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/organism/dropdown";
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.organisms} / ${componentName}`,
+  title: "Design System / Components / Organisms / Dropdown",
   parameters: {
     docs: {
       description: {

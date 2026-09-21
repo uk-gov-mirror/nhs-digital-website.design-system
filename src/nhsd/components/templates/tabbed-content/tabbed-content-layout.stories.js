@@ -15,7 +15,7 @@ Tabs can be linked to content using the \`data-tab-content\` attribute and speci
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.templates} / ${componentName}`,
+  title: "Design System / Components / Templates / Tabbed Content Layout",
   parameters: {
     docs: {
       description: {

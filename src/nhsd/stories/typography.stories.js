@@ -10,7 +10,7 @@ const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/typography";\n\
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.tokens} / ${sbConfig.title.typography}`,
+  title: "Design System / Tokens / Typography",
   parameters: {
     docs: {
       description: {

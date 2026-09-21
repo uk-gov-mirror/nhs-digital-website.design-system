@@ -19,7 +19,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/organisms/card-list";
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.organisms} / ${componentName}`,
+  title: "Design System / Components / Organisms / Card list",
   parameters: {
     docs: {
       description: {

@@ -30,7 +30,7 @@ const sourceCode = '// Sass import \n@use "nhsd/components/atoms/icon";\n\n// HT
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.atoms} / ${componentName}`,
+  title: "Design System / Components / Atoms / Document icon",
   parameters: {
     docs: {
       description: {
