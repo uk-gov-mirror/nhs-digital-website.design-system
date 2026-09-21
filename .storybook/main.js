@@ -57,6 +57,7 @@ module.exports = {
           sassOptions: {
             loadPaths: [
               path.resolve(__dirname, '../node_modules'),
+              path.resolve(__dirname, '../node_modules/sass-mq'),
               path.resolve(__dirname, '../src/nhsd'),
             ],
           },
@@ -72,7 +73,6 @@ module.exports = {
         configFile: path.resolve(__dirname, '../.stylelintrc.yml'),
         context: path.resolve(__dirname, '..'),
         files: 'src/nhsd/**/*.scss',
-        fix: true,
       }),
       new ESLintPlugin({
         context: path.resolve(__dirname, '..'),

@@ -2,7 +2,7 @@
 const path = require('path');
 const gulp = require('gulp');
 const gulpIf = require('gulp-if');
-const eslint = require('gulp-eslint');
+const { ESLint } = require('eslint');
 const eol = require('gulp-eol');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify-es').default;
@@ -11,15 +11,23 @@ const sass = require('sass');
 
 const getDestPath = () => PATHS.dist.root;
 
-gulp.task('js:lint', () => gulp.src([
+gulp.task('js:lint', async () => {
+  const eslint = new ESLint();
+  const results = await eslint.lintFiles([
     `${PATHS.src.root}/**/*.js`,
     `${PATHS.gulp.root}/**/*.js`,
-    `!${PATHS.src.root}/**/*.stories.js`,
-    '!node_modules/**',
-  ])
-  .pipe(eslint())
-  .pipe(eslint.format())
-  .pipe(gulpIf(ENV.isModeProd(), eslint.failAfterError())));
+  ]);
+  const formatter = await eslint.loadFormatter('stylish');
+  const report = formatter.format(results);
+
+  if (report) {
+    process.stdout.write(report);
+  }
+
+  if (ENV.isModeProd() && results.some(({ errorCount }) => errorCount > 0)) {
+    throw new Error('JavaScript lint errors found.');
+  }
+});
 
 gulp.task('js:compile', () => gulp.src([
     `${PATHS.src.root}/**/*.js`,
@@ -57,6 +65,7 @@ gulp.task('js:compile', () => gulp.src([
               sassOptions: {
                 loadPaths: [
                   path.resolve(__dirname, '../../node_modules'),
+                  path.resolve(__dirname, '../../node_modules/sass-mq'),
                   'node_modules',
                   path.resolve(__dirname, '../../src/nhsd'),
                 ],
