@@ -47,7 +47,7 @@
     "babel-loader": "^10.1.1",
     "chalklet": "^1.0.0",
     "css-loader": "^7.1.5",
-    "debounce": "^1.2.1",
+    "debounce": "^3.0.0",
     "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
