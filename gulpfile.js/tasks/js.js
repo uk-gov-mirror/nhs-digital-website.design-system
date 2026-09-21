@@ -40,7 +40,11 @@ gulp.task('js:compile', () => gulp.src([
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'],
-            plugins: ['@babel/plugin-proposal-class-properties'],
+            plugins: [
+              '@babel/plugin-transform-class-properties',
+              '@babel/plugin-transform-private-methods',
+              '@babel/plugin-transform-private-property-in-object',
+            ],
           },
         },
         {
@@ -51,7 +55,8 @@ gulp.task('js:compile', () => gulp.src([
               // Prefer `dart-sass`
               implementation: sass,
               sassOptions: {
-                includePaths: [
+                loadPaths: [
+                  path.resolve(__dirname, '../../node_modules'),
                   'node_modules',
                   path.resolve(__dirname, '../../src/nhsd'),
                 ],

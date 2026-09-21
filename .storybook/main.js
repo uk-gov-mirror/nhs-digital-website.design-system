@@ -21,7 +21,11 @@ module.exports = {
   babel: async (options) => ({
     ...options,
     presets: ['@babel/preset-env'],
-    plugins: ['@babel/plugin-proposal-class-properties'],
+    plugins: [
+      '@babel/plugin-transform-class-properties',
+      '@babel/plugin-transform-private-methods',
+      '@babel/plugin-transform-private-property-in-object',
+    ],
   }),
   webpackFinal: async (config, { configType }) => {
 		// `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
@@ -51,7 +55,8 @@ module.exports = {
           // Prefer `dart-sass`
           implementation: require('sass'),
           sassOptions: {
-            includePaths: [
+            loadPaths: [
+              path.resolve(__dirname, '../node_modules'),
               path.resolve(__dirname, '../src/nhsd'),
             ],
           },
