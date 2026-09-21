@@ -90,6 +90,10 @@ export default function nunjucksTemplates({ root }) {
         'var dependencies = nunjucks.webpackDependencies',
         "env.addGlobal('svgIcon', svgIcon);\nvar dependencies = nunjucks.webpackDependencies",
       );
+      code = code.replace(
+        /dependencies\[("(?:\\.|[^"])*")\]\s*=\s*(__nunjucksImport\d+);/g,
+        'Object.defineProperty(dependencies, $1, { configurable: true, get: () => $2 });',
+      );
 
       return `${imports.join('\n')}\n${inlineModules.join('\n')}\n${code}`;
     },
