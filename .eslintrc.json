@@ -1,7 +1,10 @@
 {
     "extends": "airbnb-base",
 
-    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
 
     "rules":{
       "eol-last": [2, "always"],
