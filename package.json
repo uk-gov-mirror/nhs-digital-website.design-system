@@ -63,7 +63,7 @@
     "gulp-newer": "^1.4.0",
     "gulp-sass": "^6.0.1",
     "gulp-sourcemaps": "^3.0.0",
-    "gulp-uglify-es": "^2.0.0",
+    "gulp-uglify-es": "^3.0.0",
     "nunjucks": "^3.2.4",
     "nunjucks-loader": "^3.0.0",
     "pretty": "^2.0.0",
@@ -78,7 +78,7 @@
     "stylelint": "^17.15.0",
     "stylelint-config-gds": "^3.0.0",
     "stylelint-order": "^8.1.1",
-    "through2": "^4.0.2",
+    "through2": "^5.0.11",
     "vite": "^8.3.0",
     "webpack": "^5.111.1",
     "webpack-stream": "^7.0.0"

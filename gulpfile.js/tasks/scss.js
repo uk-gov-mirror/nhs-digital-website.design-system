@@ -7,7 +7,7 @@ const csso = require('gulp-csso');
 const gulpIf = require('gulp-if');
 const sourcemaps = require('gulp-sourcemaps');
 const { finished } = require('stream/promises');
-const through2 = require('through2');
+const through2 = require('through2').default;
 const rework = require('rework');
 const reworkFunction = require('rework-plugin-function');
 
