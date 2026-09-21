@@ -3,6 +3,7 @@ import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
 const nunjucksLoader = require('nunjucks-loader');
+const nunjucksRuntimeShim = require('nunjucks-loader/runtime-shim');
 const globalsModuleId = 'virtual:nhsd-nunjucks-template-globals';
 const resolvedGlobalsModuleId = `\0${globalsModuleId}`;
 
@@ -47,8 +48,16 @@ export default function nunjucksTemplates({ root }) {
       }, source);
 
       const imports = [`import { svgIcon } from ${JSON.stringify(globalsModuleId)};`];
+      const inlineModules = [];
       let importIndex = 0;
-      let code = compiled.replace(/\brequire\((["'])(.*?)\1\)/g, (match, quote, specifier) => {
+      let code = compiled.replace(/\brequire\(\s*(["'])(.*?)\1\s*\)/g, (match, quote, specifier) => {
+        if (specifier.replaceAll('\\', '/').endsWith('/nunjucks-loader/runtime-shim')) {
+          const binding = `__nunjucksImport${importIndex}`;
+          importIndex += 1;
+          inlineModules.push(`const ${binding} = (${nunjucksRuntimeShim.toString()});`);
+          return binding;
+        }
+
         let resolvedSpecifier = specifier;
         if (path.isAbsolute(specifier)) {
           resolvedSpecifier = specifier;
@@ -70,7 +79,7 @@ export default function nunjucksTemplates({ root }) {
         "env.addGlobal('svgIcon', svgIcon);\nvar dependencies = nunjucks.webpackDependencies",
       );
 
-      return `${imports.join('\n')}\n${code}`;
+      return `${imports.join('\n')}\n${inlineModules.join('\n')}\n${code}`;
     },
   };
 }

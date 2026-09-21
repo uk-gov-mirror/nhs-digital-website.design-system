@@ -2,8 +2,8 @@ import "../src/nhsd/nhsd-frontend.scss";
 import init from "../src/nhsd/script-core/init";
 import "../src/nhsd/nhsd-frontend";
 
-const rootNode = document.getElementById('root');
-const docsRootNode = document.getElementById('docs-root');
+const rootNode = document.getElementById('storybook-root');
+const docsRootNode = document.getElementById('storybook-docs');
 
 window.nhsd = Object.assign(nhsd, init);
 

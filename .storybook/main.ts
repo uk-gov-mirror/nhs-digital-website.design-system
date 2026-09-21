@@ -15,7 +15,10 @@ export default {
   },
   stories: ['../src/nhsd/**/*.stories.js'],
   addons: ['@storybook/addon-a11y'],
-  staticDirs: [path.resolve(projectDirectory, 'dist')],
+  staticDirs: [
+    path.resolve(projectDirectory, 'dist'),
+    { from: path.resolve(projectDirectory, 'dist/fonts'), to: '/assets/fonts' },
+  ],
   viteFinal: async (config) => mergeConfig(config, {
     plugins: [nunjucksTemplates({ root: projectDirectory })],
     resolve: {
