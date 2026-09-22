@@ -72,6 +72,10 @@ const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
+LabComponent.args = {
+  id: 'document_doc',
+  classes: 'nhsd-a-document-icon--size-l',
+};
 LabComponent.parameters = {
   docs: {
     source: {
