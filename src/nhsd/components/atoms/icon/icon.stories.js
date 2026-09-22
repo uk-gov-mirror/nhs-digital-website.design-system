@@ -60,7 +60,9 @@ https://design-system.digital.nhs.uk/cdn/[TOOLKIT_VERSION]/icons/hex/[ICON_ID].s
 const sourceCode = '// Sass import \n@use "nhsd/components/atoms/icon";\n\n// HTML';
 
 const backdrop = (colour) => (Story, context) => {
-  const bleed = context.viewMode === 'docs' ? `box-shadow: 0 0 0 32px ${colour};` : '';
+  const bleed = context.viewMode === 'docs'
+    ? `box-shadow: 0 0 0 32px ${colour}; margin-top: -22px; margin-bottom: -22px;`
+    : '';
   return `<div style="background-color: ${colour}; ${bleed}">${Story()}</div>`;
 };
 
