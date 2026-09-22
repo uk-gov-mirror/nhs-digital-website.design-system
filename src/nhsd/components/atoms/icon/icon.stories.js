@@ -94,6 +94,7 @@ const Template = (args) => {
 export const LabComponent = Template.bind({});
 LabComponent.args = {
   nested: true,
+  id: 'arrow_right',
   classes: 'nhsd-a-icon--size-xxl',
 };
 LabComponent.storyName = sbConfig.title.lab;
