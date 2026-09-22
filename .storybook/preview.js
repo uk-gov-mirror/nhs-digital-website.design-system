@@ -33,15 +33,16 @@ window.nhsd = Object.assign(nhsd, init);
 const observer = new MutationObserver(() => {
   observer.disconnect();
   nhsd.init();
-  MathJax.startup.defaultReady();
-  MathJax.startup.promise.then(() => {
-    observer.observe(rootNode, { childList: true, attributes: true });
-    observer.observe(docsRootNode, { childList: true, attributes: true });
-  });
+  if (globalThis.MathJax?.startup) {
+    MathJax.startup.defaultReady();
+    MathJax.startup.promise.catch(() => undefined);
+  }
+  if (rootNode) observer.observe(rootNode, { childList: true, attributes: true });
+  if (docsRootNode) observer.observe(docsRootNode, { childList: true, attributes: true });
 });
 
-observer.observe(rootNode, { childList: true, attributes: true });
-observer.observe(docsRootNode, { childList: true, attributes: true });
+if (rootNode) observer.observe(rootNode, { childList: true, attributes: true });
+if (docsRootNode) observer.observe(docsRootNode, { childList: true, attributes: true });
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
