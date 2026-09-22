@@ -61,7 +61,7 @@ const sourceCode = '// Sass import \n@use "nhsd/components/atoms/icon";\n\n// HT
 
 const backdrop = (colour) => (Story, context) => {
   const bleed = context.viewMode === 'docs' ? `box-shadow: 0 0 0 32px ${colour};` : '';
-  return `<div style="background-color: ${colour}; min-height: 120px; padding: 32px; box-sizing: border-box; ${bleed}">${Story()}</div>`;
+  return `<div style="background-color: ${colour}; ${bleed}">${Story()}</div>`;
 };
 
 // Component defaults
