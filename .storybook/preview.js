@@ -4,6 +4,26 @@ import "../src/nhsd/nhsd-frontend";
 
 export const tags = ['autodocs'];
 
+const legacyBackgrounds = {
+  light: '#ffffff',
+  dim: '#425563',
+  dark: '#231f20',
+  blue: '#005bbb',
+  bright: '#fae100',
+  grey: '#edf1f1',
+};
+
+export const decorators = [
+  (Story, context) => {
+    const name = context.parameters?.backgrounds?.default;
+    const colour = legacyBackgrounds[name];
+
+    if (context.viewMode !== 'docs' || !colour) return Story();
+
+    return `<div style="background-color: ${colour}; box-shadow: 0 0 0 32px ${colour}; margin-top: -22px; margin-bottom: -22px;">${Story()}</div>`;
+  },
+];
+
 const rootNode = document.getElementById('storybook-root');
 const docsRootNode = document.getElementById('storybook-docs');
 
