@@ -59,6 +59,11 @@ https://design-system.digital.nhs.uk/cdn/[TOOLKIT_VERSION]/icons/hex/[ICON_ID].s
 `;
 const sourceCode = '// Sass import \n@use "nhsd/components/atoms/icon";\n\n// HTML';
 
+const backdrop = (colour) => (Story, context) => {
+  const bleed = context.viewMode === 'docs' ? 'margin: -32px; width: calc(100% + 64px);' : '';
+  return `<div style="background-color: ${colour}; min-height: 120px; padding: 32px; box-sizing: border-box; ${bleed}">${Story()}</div>`;
+};
+
 // Component defaults
 export default {
   title: "Design System / Components / Atoms / Icon",
@@ -157,7 +162,7 @@ ComponentVariant3.globals = {
   },
 };
 ComponentVariant3.decorators = [
-  (Story) => `<div style="background-color: #005bbb; padding: 1rem;">${Story()}</div>`,
+  backdrop('#005bbb'),
 ];
 
 export const ComponentVariant4 = Template.bind({});
@@ -177,6 +182,7 @@ ComponentVariant4.parameters = {
     },
   },
 };
+ComponentVariant4.decorators = [backdrop('#231f20')];
 
 export const DarkGreyColour = Template.bind({});
 DarkGreyColour.args = {
