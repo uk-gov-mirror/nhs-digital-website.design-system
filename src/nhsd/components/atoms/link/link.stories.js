@@ -10,6 +10,13 @@ const componentName = 'Link';
 const storyDescription = `It is important to note that the link atom works off the typographic settings it inherits from their parent elements. This is to make sure that the link text matches the surrounding text content's styling, and for this reason links don'\t set any font and text related styles themselves. ${sbConfig.heading.lab}`;
 const sourceCode = '// Sass import \n@use "nhsd/components/atoms/link";\n\n// HTML';
 
+const contrastBackdrop = (colour) => (Story, context) => {
+  const bleed = context.viewMode === 'docs'
+    ? `box-shadow: 0 0 0 32px ${colour}; margin-top: -22px; margin-bottom: -22px;`
+    : '';
+  return `<div style="background-color: ${colour}; padding: 22px 22px 22px 0; box-sizing: border-box; ${bleed}">${Story()}</div>`;
+};
+
 // Component defaults
 export default {
   title: "Design System / Components / Atoms / Link",
@@ -67,6 +74,8 @@ WhiteLink.parameters = {
     },
   },
 };
+WhiteLink.globals = { backgrounds: { value: '#425563' } };
+WhiteLink.decorators = [contrastBackdrop('#425563')];
 
 export const DarkGreyLink = Template.bind({});
 DarkGreyLink.args = {
@@ -104,6 +113,8 @@ BlackLink.parameters = {
     },
   },
 };
+BlackLink.globals = { backgrounds: { value: '#fae100' } };
+BlackLink.decorators = [contrastBackdrop('#fae100')];
 
 export const LinkInText = () => {
   const p = document.createElement('p');
