@@ -63,7 +63,8 @@ const backdrop = (colour) => (Story, context) => {
   const bleed = context.viewMode === 'docs'
     ? `box-shadow: 0 0 0 32px ${colour}; margin-top: -22px; margin-bottom: -22px;`
     : '';
-  return `<div style="background-color: ${colour}; padding: 22px 22px 22px 0; box-sizing: border-box; ${bleed}">${Story()}</div>`;
+  const padding = context.viewMode === 'docs' ? '22px 22px 22px 0' : '22px';
+  return `<div style="background-color: ${colour}; padding: ${padding}; box-sizing: border-box; ${bleed}">${Story()}</div>`;
 };
 
 // Component defaults
