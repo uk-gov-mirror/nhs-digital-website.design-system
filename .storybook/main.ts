@@ -17,7 +17,7 @@ export default {
   addons: ['@storybook/addon-a11y', '@storybook/addon-docs'],
   staticDirs: [
     path.resolve(projectDirectory, 'dist'),
-    { from: path.resolve(projectDirectory, 'dist/fonts'), to: '/assets/fonts' },
+    { from: path.resolve(sourceDirectory, 'assets/fonts'), to: '/assets/fonts' },
   ],
   viteFinal: async (config) => mergeConfig(config, {
     plugins: [nunjucksTemplates({ root: projectDirectory })],
