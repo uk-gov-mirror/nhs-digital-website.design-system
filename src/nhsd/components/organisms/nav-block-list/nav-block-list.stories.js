@@ -142,7 +142,7 @@ TwoInARowNested.parameters = {
 export const ThreeInARow = Template.bind({});
 ThreeInARow.storyName = '3D/2T/1M';
 ThreeInARow.args = {
-  desktopColumns: 3,
+  desktopColumns: 2,
   blocks: [
     {
       classes: 'nhsd-m-nav-block--light-text',
