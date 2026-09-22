@@ -6,8 +6,7 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
-
-require('./_example.scss');
+import './_example.scss';
 
 const componentName = 'Image';
 const storyDescription = `${sbConfig.heading.lab}
