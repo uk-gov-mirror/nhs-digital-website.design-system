@@ -40,6 +40,13 @@ const sourceCode = `// Sass import \n@use "nhsd/components/atoms/button";
 
 // HTML`;
 
+const dimBackdrop = (Story, context) => {
+  const bleed = context.viewMode === 'docs'
+    ? 'box-shadow: 0 0 0 32px #425563; margin-top: -22px; margin-bottom: -22px;'
+    : '';
+  return `<div style="background-color: #425563; padding: 22px 22px 22px 0; box-sizing: border-box; ${bleed}">${Story()}</div>`;
+};
+
 // Component defaults
 export default {
   title: "Design System / Components / Atoms / Button",
@@ -147,6 +154,8 @@ TertiaryButton.parameters = {
     },
   },
 };
+TertiaryButton.globals = { backgrounds: { value: '#425563' } };
+TertiaryButton.decorators = [dimBackdrop];
 
 export const StartButton = Template.bind({});
 StartButton.storyName = 'Start button';
@@ -398,6 +407,8 @@ TertiaryButtonWithIconAndLabel.parameters = {
     },
   },
 };
+TertiaryButtonWithIconAndLabel.globals = { backgrounds: { value: '#425563' } };
+TertiaryButtonWithIconAndLabel.decorators = [dimBackdrop];
 
 export const TertiaryButtonWithIcon = Template.bind({});
 TertiaryButtonWithIcon.storyName = 'Tertiary button / With icon';
@@ -422,6 +433,8 @@ TertiaryButtonWithIcon.parameters = {
     },
   },
 };
+TertiaryButtonWithIcon.globals = { backgrounds: { value: '#425563' } };
+TertiaryButtonWithIcon.decorators = [dimBackdrop];
 
 export const DisabledButtonWithIconAndLabel = Template.bind({});
 DisabledButtonWithIconAndLabel.storyName = 'Disabled button / With icon and label';
