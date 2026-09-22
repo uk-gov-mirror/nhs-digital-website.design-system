@@ -558,6 +558,20 @@ export const MathJaxComponent = () => {
   return div;
 };
 MathJaxComponent.storyName = 'MathJax';
+MathJaxComponent.decorators = [
+  (Story) => {
+    const markup = Story();
+    setTimeout(() => {
+      const startup = globalThis.MathJax?.startup?.promise;
+      if (startup) {
+        startup.then(() => globalThis.MathJax.typesetPromise?.()).catch(() => undefined);
+      } else {
+        globalThis.MathJax?.typesetPromise?.().catch(() => undefined);
+      }
+    }, 0);
+    return markup;
+  },
+];
 MathJaxComponent.parameters = {
   docs: {
     source: {
