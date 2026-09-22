@@ -432,7 +432,7 @@ export const HeightMatchComponent = () => {
     <div class="nhsd-t-col-4">${LabComponent(shortHeightMatchArgs)}</div>
   </div>
 </div>`;
-  return div;
+  return div.outerHTML;
 };
 
 HeightMatchComponent.storyName = 'Height match';
