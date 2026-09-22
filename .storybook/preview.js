@@ -18,7 +18,9 @@ export const decorators = [
     const name = context.parameters?.backgrounds?.default;
     const colour = legacyBackgrounds[name];
 
-    if (context.viewMode !== 'docs' || !colour) return Story();
+    // The light background is Storybook's normal Docs canvas. Only add a
+    // wrapper for stories that explicitly need a contrasting legacy colour.
+    if (context.viewMode !== 'docs' || !colour || name === 'light') return Story();
 
     return `<div style="background-color: ${colour}; box-shadow: 0 0 0 32px ${colour}; margin-top: -22px; margin-bottom: -22px;">${Story()}</div>`;
   },
