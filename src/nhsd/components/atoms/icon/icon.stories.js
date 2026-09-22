@@ -156,6 +156,9 @@ ComponentVariant3.globals = {
     value: '#005bbb',
   },
 };
+ComponentVariant3.decorators = [
+  (Story) => `<div style="background-color: #005bbb; padding: 1rem;">${Story()}</div>`,
+];
 
 export const ComponentVariant4 = Template.bind({});
 ComponentVariant4.args = {
