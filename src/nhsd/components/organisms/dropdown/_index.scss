@@ -104,8 +104,8 @@ $-root: ".nhsd-o-dropdown";
 
   &--open {
     #{$-root}__dropdown {
-      overflow: auto;
       visibility: visible;
+      overflow: auto;
       opacity: 1;
     }
   }
