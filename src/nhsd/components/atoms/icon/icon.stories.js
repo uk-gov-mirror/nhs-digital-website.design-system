@@ -151,6 +151,11 @@ ComponentVariant3.parameters = {
     },
   },
 };
+ComponentVariant3.globals = {
+  backgrounds: {
+    value: '#005bbb',
+  },
+};
 
 export const ComponentVariant4 = Template.bind({});
 ComponentVariant4.args = {
